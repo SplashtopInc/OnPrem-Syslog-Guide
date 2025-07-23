@@ -16,13 +16,15 @@ theme:
 
 nav:
   - Syslog:
-      - Overview: syslog-events.md
-      - Syslog Format: events/syslog-format.md
+      - Overview: index.md
       - Events and Fields:
-          - Auth: events/Auth.md
-          - Management: events/Management.md
-          - Log: events/Log.md
-          - Else: events/Syslog events and fields.md
+          - Auth: category/auth.md
+          - Session: category/session.md
+          - Log: category/log.md
+          - Endpoint: category/endpoint.md
+          - Management: category/management.md
+          - Service Desk: category/service_desk.md
+          - Settings: category/settings.md
 
 markdown_extensions:
   - admonition
