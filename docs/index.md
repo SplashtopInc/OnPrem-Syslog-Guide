@@ -1,8 +1,16 @@
-# Syslog format
+In addition to access logs from web console, Splashtop log events can also be sent to a Syslog server or SIEM tool that support Syslog in your local environment. The auditing of Splashtop event logs can be accessed both from Gateway web console, download as CSV or Syslog collectors simultaneously.
 
-### 1. Syslog Settings[¶](https://my-syslog-docs.readthedocs.io/en/latest/events/syslog-format/#1-syslog-settings)
+### 1. Configuration
 
-| **Name** | **Syslog host name in Splashtop Gateway.** |
+1. To configure Splashtop Gateway as Syslog source, log in web console as Team Owner, go to **Settings** → **Syslog**.
+
+2. You can configure Gateway to send Syslog messages up to two Syslog servers.
+
+3. Click add to configure your target Syslog server.
+
+4. Syslog Settings
+
+| **Name** | Syslog host name in Splashtop Gateway. |
 | --- | --- |
 | **Syslog Server address** | Enter the hostname or IP address of the syslog server receiving log messages. |
 | **Port** | Syslog over UDP defaults to use port 514. The defaults can be changed. |
@@ -13,7 +21,7 @@
 | **Status** | Once enabled, Splashtop Gateway starts to send persistent syslog messages to your Syslog Server. |
 | **Test Message** | Send a message to your Syslog Server to test the above settings. |
 
-### 2. Syslog Message Format[¶](https://my-syslog-docs.readthedocs.io/en/latest/events/syslog-format/#2-syslog-message-format)
+### 2. Syslog Message Format
 
 **Header**
 
@@ -53,7 +61,7 @@
 | **property** | String | Additional property in the event |
 | **value** | String | Additional values in the event. |
 
-### 3. Syslog message examples[¶](https://my-syslog-docs.readthedocs.io/en/latest/events/syslog-format/#3-syslog-message-examples)
+### 3. Syslog message examples
 
 Splashtop syslog message examples following standard RFC 5424 format are showing below.
 
