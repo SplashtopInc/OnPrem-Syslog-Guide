@@ -11,7 +11,6 @@ In addition to access logs from web console, Splashtop log events can also be 
 4. Syslog Settings
 
 | **Name** | Syslog host name in Splashtop Gateway. |
-| --- | --- |
 | **Syslog Server address** | Enter the hostname or IP address of the syslog server receiving log messages. |
 | **Port** | Syslog over UDP defaults to use port 514. The defaults can be changed. |
 | **Syslog Protocol** | Supports UDP or TCP. |
@@ -25,8 +24,7 @@ In addition to access logs from web console, Splashtop log events can also be 
 
 **Header**
 
-| **Date/Time** | **Syslog event time** |
-| --- | --- |
+| **Date/Time** | Syslog event time |
 | **PRI** | Local0.Notice |
 | **Hostname** | IP/FQDN |
 | **APP-Name** | onpremise.exe |
