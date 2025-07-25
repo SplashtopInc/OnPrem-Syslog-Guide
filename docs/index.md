@@ -8,9 +8,10 @@ In addition to access logs from web console, Splashtop log events can also be 
 
 3. Click add to configure your target Syslog server.
 
-4. Syslog Settings
+Syslog Settings
 
 | **Name** | Syslog host name in Splashtop Gateway. |
+| --- | --- |
 | **Syslog Server address** | Enter the hostname or IP address of the syslog server receiving log messages. |
 | **Port** | Syslog over UDP defaults to use port 514. The defaults can be changed. |
 | **Syslog Protocol** | Supports UDP or TCP. |
@@ -20,11 +21,24 @@ In addition to access logs from web console, Splashtop log events can also be 
 | **Status** | Once enabled, Splashtop Gateway starts to send persistent syslog messages to your Syslog Server. |
 | **Test Message** | Send a message to your Syslog Server to test the above settings. |
 
+<table>
+  <tr><td style="font-weight:bold;">Name</td><td>Syslog host name in Splashtop Gateway.</td></tr>
+  <tr><td style="font-weight:bold;">Syslog Server address</td><td>Enter the hostname or IP address of the syslog server receiving log messages.</td></tr>
+  <tr><td style="font-weight:bold;">Port</td><td>Syslog over UDP defaults to use port 514. The defaults can be changed.</td></tr>
+  <tr><td style="font-weight:bold;">Syslog Protocol</td><td>Supports UDP or TCP.</td></tr>
+  <tr><td style="font-weight:bold;">Message Format</td><td>Supports RFC 5424 or RFC 3164 (BSD).</td></tr>
+  <tr><td style="font-weight:bold;">Facility</td><td>Choose proper facility from local0 - local7.</td></tr>
+  <tr><td style="font-weight:bold;">Severity</td><td>Choose the proper Syslog severity.</td></tr>
+  <tr><td style="font-weight:bold;">Status</td><td>Once enabled, Splashtop Gateway starts to send persistent syslog messages to your Syslog Server.</td></tr>
+  <tr><td style="font-weight:bold;">Test Message</td><td>Send a message to your Syslog Server to test the above settings.</td></tr>
+</table>
+
 ### 2. Syslog Message Format
 
 **Header**
 
 | **Date/Time** | Syslog event time |
+| --- | --- |
 | **PRI** | Local0.Notice |
 | **Hostname** | IP/FQDN |
 | **APP-Name** | onpremise.exe |
