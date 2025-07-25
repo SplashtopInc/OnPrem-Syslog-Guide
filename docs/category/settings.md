@@ -1,23 +1,42 @@
 # Syslog - Settings
 
-## **Account**
+## Public Fields
+
+| Field | Value | **Explanation** |
+| --- | --- | --- |
+| timestamp | ISO 8601 timestamp format | The date and time the event has been triggered. |
+| team_id | Integer | Splashtop Team ID. |
+| category | String | Splashtop events category. |
+| kind | String | Splashtop events kind under specific category. |
+| action | **add** or **update** or **delete** | The event operating action type in the event. |
+| source_agent | **browser** or **client** or **streamer** or **openapi** or **scim** or **system** | The origin client of the specific event. |
+| source_address | IPv4 format | The origin IP address in the specific event. |
+| source_version | String | The origin client version in the specific event. |
+| source_os | String | The origin operating system in the the event. |
+| source_name | String | The origin client name in the specific event. |
+| target_agent | **browser** or **client** or **streamer** | The target device type in the event. |
+| target_address | IPv4 format | The target IP address in the event. |
+| target_version | String | The target agent version in the event. |
+| target_os | String | The target agent platform in the event |
+| target_name | String | The target device name in the event. |
+| target_account | String | The target user account in the event. |
+
+## AD Server
 
 ### **Events and triggers**
 
 | **Event** | **Trigger** |
 | --- | --- |
-| account_added | A new account has been added and saved. |
-| account_changed | An existing account has been modified and saved. |
-| account_removed | An existing account has been deleted. |
+| adserver_added | A new AD server has been added and saved. |
+| adserver_ldap_updated | The LDAP address of an AD server has been updated. |
+| adserver_name_updated | The name of an AD server has been updated. |
+| adserver_removed | An existing AD server has been removed. |
 
 ### **Fields**
-
 | **Field** | **Value** | **Explanation** |
 | --- | --- | --- |
-| name | string | The name of the account. |
-| username | string | The username of the account |
-| password | *** | Indicates if the password has changed. The actual string is never supplied. |
-| auto_rotate_credentials | **1** or **0** | **1:** Enables the automatic rotation for this account.**0:** Disables the automatic rotation for this account. |
-| allow_simultaneous_checkout | **1** or **0** | **1:** Account can be checked out and used by multiple users or sessions at the same time.**0:** Account can be checked out and used by single user at the same time. |
-| personal | **1** or **0** | **1:** Is a personal account.**0:** Is a shared account. |
-| group | string | The unique identifier of the account group. |
+| account | String | The user account that initiated the specific event. |
+| target | String | The name of the target AD server. |
+| result | String | Success or failure of the event. |
+| ldap_addr | String | The added/updated LDAP address of the AD server. |
+| name | String | The updated name of the AD server. |
