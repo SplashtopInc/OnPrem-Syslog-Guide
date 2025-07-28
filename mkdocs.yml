@@ -1,4 +1,4 @@
-site_name: Splashtop Syslog Guide
+site_name: Splashtop Syslog Guide (site name)
 
 theme:
   name: material
@@ -15,16 +15,15 @@ theme:
     - content.code.annotate
 
 nav:
-  - Syslog:
-      - Overview: index.md
-      - Events and Fields:
-          - Auth: category/auth.md
-          - Session: category/session.md
-          - Log: category/log.md
-          - Endpoint: category/endpoint.md
-          - Management: category/management.md
-          - Service Desk: category/service_desk.md
-          - Settings: category/settings.md
+  - Overview: index.md
+  - Events and Fields:
+      - Auth: category/auth.md
+      - Session: category/session.md
+      - Log: category/log.md
+      - Endpoint: category/endpoint.md
+      - Management: category/management.md
+      - Service Desk: category/service_desk.md
+      - Settings: category/settings.md
 
 markdown_extensions:
   - admonition
