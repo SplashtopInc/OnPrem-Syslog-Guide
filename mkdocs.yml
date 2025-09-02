@@ -32,3 +32,5 @@ markdown_extensions:
       permalink: true
 plugins:
   - search
+extra_css:
+  - assets/css/extra.css
