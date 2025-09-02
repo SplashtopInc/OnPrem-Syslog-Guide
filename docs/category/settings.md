@@ -1,5 +1,3 @@
-# settings.md
-
 # Syslog - Settings
 
 ## Public Fields
