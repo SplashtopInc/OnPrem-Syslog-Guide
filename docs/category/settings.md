@@ -1,6 +1,6 @@
 # Syslog - Settings
 
-## Public Fields
+## **Public Fields**
 
 | Field | Value | **Explanation** |
 | --- | --- | --- |
@@ -23,7 +23,7 @@
 | target_account | String | The target user account in the event. |
 | result | String | Success or failure of the event. |
 
-## AD Server
+## **AD Server**
 
 ### **Events and triggers**
 
