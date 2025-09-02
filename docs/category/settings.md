@@ -237,7 +237,5 @@
 
 | **Field** | **Value** | **Explanation** |
 | --- | --- | --- |
-| remote_reboot_member | **Restart streamer
-Normal reboot
-Safe-mode reboot** | Actions that member role is allowed to perform on the computers. |
+| remote_reboot_member | String | Actions that member role is allowed to perform on the computers. |
 | permission_for_computer_notes | **cannot view and edit** or **view only** or **view and edit** | Whether member role cannot view and edit the computer notes, can only view the computer notes, or can view and edit the computer notes. |
