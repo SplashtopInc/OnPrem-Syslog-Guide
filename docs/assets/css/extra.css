@@ -1,0 +1,42 @@
+.md-typeset table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+/* =========================
+   针对 2 列表格
+   ========================= */
+.md-typeset table:has(th:nth-child(2):last-child),
+.md-typeset table:has(td:nth-child(2):last-child) {
+  width: 100%;
+}
+
+.md-typeset table:has(th:nth-child(2):last-child) th:nth-child(1),
+.md-typeset table:has(td:nth-child(2):last-child) td:nth-child(1) {
+  width: 30%;
+}
+.md-typeset table:has(th:nth-child(2):last-child) th:nth-child(2),
+.md-typeset table:has(td:nth-child(2):last-child) td:nth-child(2) {
+  width: 70%;
+}
+
+/* =========================
+   针对 3 列表格
+   ========================= */
+.md-typeset table:has(th:nth-child(3):last-child),
+.md-typeset table:has(td:nth-child(3):last-child) {
+  width: 100%;
+}
+
+.md-typeset table:has(th:nth-child(3):last-child) th:nth-child(1),
+.md-typeset table:has(td:nth-child(3):last-child) td:nth-child(1) {
+  width: 30%;
+}
+.md-typeset table:has(th:nth-child(3):last-child) th:nth-child(2),
+.md-typeset table:has(td:nth-child(3):last-child) td:nth-child(2) {
+  width: 20%;
+}
+.md-typeset table:has(th:nth-child(3):last-child) th:nth-child(3),
+.md-typeset table:has(td:nth-child(3):last-child) td:nth-child(3) {
+  width: 50%;
+}
