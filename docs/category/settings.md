@@ -42,7 +42,7 @@
 | ldap_addr | String | The added/updated LDAP address of the AD server. |
 | name | String | The updated name of the AD server. |
 
-## SMTP Server
+## **SMTP Server**
 
 ### **Events and triggers**
 
@@ -67,7 +67,7 @@
 | new_addr | String | The updated SMTP server address. |
 | new_email | String | The updated sender Email address. |
 
-## Unattended Access
+## **Unattended Access**
 
 ### **Events and triggers**
 
@@ -210,7 +210,7 @@
 | exec_at | String | The daily time of running the offline computer policy. |
 | session_indicator_type | **Both** or **Pop-up** or **Banner** or **None** | The indicator type for remote session or background actions. |
 
-## User Settings
+## **User Settings**
 
 ### **Events and triggers**
 
