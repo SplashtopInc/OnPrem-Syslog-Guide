@@ -25,7 +25,7 @@
 
 ## **AD Server**
 
-### **Events and triggers**
+### Events and triggers
 
 | **Event** | **Trigger** |
 | --- | --- |
@@ -34,7 +34,7 @@
 | adserver_name_updated | The name of an AD server has been updated. |
 | adserver_removed | An existing AD server has been deleted. |
 
-### **Fields**
+### Fields
 
 | **Field** | **Value** | **Explanation** |
 | --- | --- | --- |
@@ -44,7 +44,7 @@
 
 ## **SMTP Server**
 
-### **Events and triggers**
+### Events and triggers
 
 | **Event** | **Trigger** |
 | --- | --- |
@@ -55,7 +55,7 @@
 | smtp_server_updated | An existing SMTP server has been modified and saved. |
 | gateway_url_updated | The Splashtop Gateway URL has been modified and saved. |
 
-### **Fields**
+### Fields
 
 | **Field** | **Value** | **Explanation** |
 | --- | --- | --- |
@@ -69,7 +69,7 @@
 
 ## **Unattended Access**
 
-### **Events and triggers**
+### Events and triggers
 
 | **Event** | **Trigger** |
 | --- | --- |
@@ -167,7 +167,7 @@
 | team_save_off_session_chat_transcript_disabled | The save off-session chat transcript has been disabled at team level. |
 | team_save_in_session_chat_transcript_disabled | The save in-session chat transcript has been disabled for unattended access. |
 
-### **Fields**
+### Fields
 
 | **Field** | **Value** | **Explanation** |
 | --- | --- | --- |
@@ -212,7 +212,7 @@
 
 ## **User Settings**
 
-### **Events and triggers**
+### Events and triggers
 
 | **Event** | **Trigger** |
 | --- | --- |
@@ -231,7 +231,7 @@
 | team_remote_reboot_action_updated | The settings of allowing member roles to reboot computers and Streamers have been updated. |
 | team_member_permission_for_computer_notes_updated | The settings of member’s permission for computer notes have been updated. |
 
-### **Fields**
+### Fields
 
 | **Field** | **Value** | **Explanation** |
 | --- | --- | --- |
