@@ -1,0 +1,24 @@
+/* 统一：固定布局 + 全宽 */
+.md-typeset .md-typeset__table table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+/* 让内容能换行，避免被长单词/代码“撑爆” */
+.md-typeset table th,
+.md-typeset table td {
+  word-break: break-word;
+}
+.md-typeset table code {
+  white-space: pre-wrap;   /* 代码也允许换行 */
+  word-break: break-word;
+}
+
+/* ===== 2 列：30% / 70%（作用在首行的各列） ===== */
+.md-typeset .md-typeset__table table tr:first-child > *:nth-child(1) { width: 30%; }
+.md-typeset .md-typeset__table table tr:first-child > *:nth-child(2) { width: 70%; }
+
+/* ===== 3 列：20% / 50% / 30%（作用在首行的各列）===== */
+.md-typeset .md-typeset__table table tr:first-child > *:nth-child(1) { width: 20%; }
+.md-typeset .md-typeset__table table tr:first-child > *:nth-child(2) { width: 30%; }
+.md-typeset .md-typeset__table table tr:first-child > *:nth-child(3) { width: 50%; }

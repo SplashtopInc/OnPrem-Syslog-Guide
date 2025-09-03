@@ -1,0 +1,1778 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../service_desk/">
+      
+      
+      
+      <link rel="icon" href="../../assets/shuidi.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Settings - Splashtop Syslog Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#settings" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Splashtop Syslog Guide" class="md-header__button md-logo" aria-label="Splashtop Syslog Guide" data-md-component="logo">
+      
+  <img src="../../assets/Logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Splashtop Syslog Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Settings
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Splashtop Syslog Guide" class="md-nav__button md-logo" aria-label="Splashtop Syslog Guide" data-md-component="logo">
+      
+  <img src="../../assets/Logo.png" alt="logo">
+
+    </a>
+    Splashtop Syslog Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Events and Fields
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Events and Fields
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Auth
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../session/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Session
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../log/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Log
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../endpoint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Endpoint
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service_desk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Service Desk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Settings
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Settings
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#public-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Public Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ad-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      AD Server
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AD Server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#events-and-triggers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Events and triggers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fields
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smtp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      SMTP Server
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SMTP Server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#events-and-triggers_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Events and triggers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fields_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fields
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unattended-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unattended Access
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Unattended Access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#events-and-triggers_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Events and triggers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fields_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fields
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#events-and-triggers_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Events and triggers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fields_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fields
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#public-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Public Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ad-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      AD Server
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AD Server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#events-and-triggers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Events and triggers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fields
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smtp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      SMTP Server
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SMTP Server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#events-and-triggers_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Events and triggers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fields_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fields
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unattended-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unattended Access
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Unattended Access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#events-and-triggers_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Events and triggers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fields_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fields
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#events-and-triggers_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Events and triggers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fields_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fields
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="settings"><strong>Settings</strong><a class="headerlink" href="#settings" title="Permanent link">&para;</a></h1>
+<h2 id="public-fields"><strong>Public Fields</strong><a class="headerlink" href="#public-fields" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+<th><strong>Explanation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>timestamp</td>
+<td>ISO 8601 timestamp format</td>
+<td>The date and time the event has been triggered.</td>
+</tr>
+<tr>
+<td>team_id</td>
+<td>Integer</td>
+<td>Splashtop Team ID.</td>
+</tr>
+<tr>
+<td>category</td>
+<td>String</td>
+<td>Splashtop events category.</td>
+</tr>
+<tr>
+<td>kind</td>
+<td>String</td>
+<td>Splashtop events kind under specific category.</td>
+</tr>
+<tr>
+<td>action</td>
+<td><strong>add</strong> or <strong>update</strong> or <strong>delete</strong></td>
+<td>The event operating action type in the event.</td>
+</tr>
+<tr>
+<td>account</td>
+<td>String</td>
+<td>The user account that initiated the specific event.</td>
+</tr>
+<tr>
+<td>source_agent</td>
+<td><strong>browser</strong> or <strong>client</strong> or <strong>streamer</strong> or <strong>openapi</strong> or <strong>scim</strong> or <strong>system</strong></td>
+<td>The origin client of the specific event.</td>
+</tr>
+<tr>
+<td>source_address</td>
+<td>String</td>
+<td>IPv4 format. The origin IP address in the specific event.</td>
+</tr>
+<tr>
+<td>source_version</td>
+<td>String</td>
+<td>The origin client version in the specific event.</td>
+</tr>
+<tr>
+<td>source_os</td>
+<td>String</td>
+<td>The origin operating system in the the event.</td>
+</tr>
+<tr>
+<td>source_name</td>
+<td>String</td>
+<td>The origin client name in the specific event.</td>
+</tr>
+<tr>
+<td>target_agent</td>
+<td><strong>browser</strong> or <strong>client</strong> or <strong>streamer</strong></td>
+<td>The target device type in the event.</td>
+</tr>
+<tr>
+<td>target_address</td>
+<td>String</td>
+<td>IPv4 format. The target IP address in the event.</td>
+</tr>
+<tr>
+<td>target_version</td>
+<td>String</td>
+<td>The target agent version in the event.</td>
+</tr>
+<tr>
+<td>target_os</td>
+<td>String</td>
+<td>The target agent platform in the event</td>
+</tr>
+<tr>
+<td>target_name</td>
+<td>String</td>
+<td>The target device name in the event.</td>
+</tr>
+<tr>
+<td>target_account</td>
+<td>String</td>
+<td>The target user account in the event.</td>
+</tr>
+<tr>
+<td>result</td>
+<td>String</td>
+<td>Success or failure of the event.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ad-server"><strong>AD Server</strong><a class="headerlink" href="#ad-server" title="Permanent link">&para;</a></h2>
+<h3 id="events-and-triggers">Events and triggers<a class="headerlink" href="#events-and-triggers" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Event</strong></th>
+<th><strong>Trigger</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>adserver_added</td>
+<td>A new AD server has been added and saved.</td>
+</tr>
+<tr>
+<td>adserver_ldap_updated</td>
+<td>The LDAP address of an AD server has been updated.</td>
+</tr>
+<tr>
+<td>adserver_name_updated</td>
+<td>The name of an AD server has been updated.</td>
+</tr>
+<tr>
+<td>adserver_removed</td>
+<td>An existing AD server has been deleted.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fields">Fields<a class="headerlink" href="#fields" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Field</strong></th>
+<th><strong>Value</strong></th>
+<th><strong>Explanation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>target</td>
+<td>String</td>
+<td>The name of the target AD server.</td>
+</tr>
+<tr>
+<td>ldap_addr</td>
+<td>String</td>
+<td>The added/updated LDAP address of the AD server.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>The updated name of the AD server.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="smtp-server"><strong>SMTP Server</strong><a class="headerlink" href="#smtp-server" title="Permanent link">&para;</a></h2>
+<h3 id="events-and-triggers_1">Events and triggers<a class="headerlink" href="#events-and-triggers_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Event</strong></th>
+<th><strong>Trigger</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>smtp_server_added</td>
+<td>A new SMTP server has been added and saved.</td>
+</tr>
+<tr>
+<td>smtp_server_disabled</td>
+<td>An SMTP server has been disabled.</td>
+</tr>
+<tr>
+<td>smtp_server_enabled</td>
+<td>An SMTP server has been enabled.</td>
+</tr>
+<tr>
+<td>smtp_server_removed</td>
+<td>An existing SMTP server has been deleted.</td>
+</tr>
+<tr>
+<td>smtp_server_updated</td>
+<td>An existing SMTP server has been modified and saved.</td>
+</tr>
+<tr>
+<td>gateway_url_updated</td>
+<td>The Splashtop Gateway URL has been modified and saved.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fields_1">Fields<a class="headerlink" href="#fields_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Field</strong></th>
+<th><strong>Value</strong></th>
+<th><strong>Explanation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>target</td>
+<td>String</td>
+<td>The target SMTP server address or specific configuration items such as gateway_url, address, email.</td>
+</tr>
+<tr>
+<td>old_url</td>
+<td>String</td>
+<td>The previous Gateway URL.</td>
+</tr>
+<tr>
+<td>old_addr</td>
+<td>String</td>
+<td>The previous SMTP server address.</td>
+</tr>
+<tr>
+<td>old_mail</td>
+<td>String</td>
+<td>The previous sender Email address.</td>
+</tr>
+<tr>
+<td>new_url</td>
+<td>String</td>
+<td>The updated Gateway URL.</td>
+</tr>
+<tr>
+<td>new_addr</td>
+<td>String</td>
+<td>The updated SMTP server address.</td>
+</tr>
+<tr>
+<td>new_email</td>
+<td>String</td>
+<td>The updated sender Email address.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="unattended-access"><strong>Unattended Access</strong><a class="headerlink" href="#unattended-access" title="Permanent link">&para;</a></h2>
+<h3 id="events-and-triggers_2">Events and triggers<a class="headerlink" href="#events-and-triggers_2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Event</strong></th>
+<th><strong>Trigger</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>team_grant_granular_file_transfer_download_updated</td>
+<td>The admin-configurable value of the file transfer (download) has been updated for the team.</td>
+</tr>
+<tr>
+<td>team_grant_granular_file_transfer_upload_updated</td>
+<td>The admin-configurable value of the file transfer (upload) has been updated for the team.</td>
+</tr>
+<tr>
+<td>team_grant_granular_remote_command_updated</td>
+<td>The admin-configurable value of the remote command has been updated for the team.</td>
+</tr>
+<tr>
+<td>team_grant_granular_remote_print_updated</td>
+<td>The admin-configurable value of the remote print has been updated for the team.</td>
+</tr>
+<tr>
+<td>team_grant_granular_request_permission_updated</td>
+<td>The admin-configurable value of the request permission to connect has been updated for the team.</td>
+</tr>
+<tr>
+<td>team_grant_granular_text_copy_paste_local_remote_updated</td>
+<td>The admin-configurable value of the copy and paste (from local to remote) has been updated for the team.</td>
+</tr>
+<tr>
+<td>team_grant_granular_text_copy_paste_remote_local_updated</td>
+<td>The admin-configurable value of the copy and paste (from remote to local) has been updated for the team.</td>
+</tr>
+<tr>
+<td>team_grant_granular_watermark_protection_updated</td>
+<td>The admin-configurable value of the watermark protection has been updated for the team.</td>
+</tr>
+<tr>
+<td>team_granular_file_transfer_download_admin_updated</td>
+<td>The team’s granular control of the file transfer (download) for admins has been updated.</td>
+</tr>
+<tr>
+<td>team_granular_file_transfer_download_member_updated</td>
+<td>The team’s granular control of the file transfer (download) for members has been updated.</td>
+</tr>
+<tr>
+<td>team_granular_file_transfer_upload_admin_updated</td>
+<td>The team’s granular control of the file transfer (upload) for admins has been updated.</td>
+</tr>
+<tr>
+<td>team_granular_file_transfer_upload_member_updated</td>
+<td>The team’s granular control of the file transfer (upload) for members has been updated.</td>
+</tr>
+<tr>
+<td>team_granular_remote_command_admin_updated</td>
+<td>The team’s granular control of the remote command for admins has been updated.</td>
+</tr>
+<tr>
+<td>team_granular_remote_command_member_updated</td>
+<td>The team’s granular control of the remote command for members has been updated.</td>
+</tr>
+<tr>
+<td>team_granular_remote_print_admin_updated</td>
+<td>The team’s granular control of the remote print for admins has been updated.</td>
+</tr>
+<tr>
+<td>team_granular_remote_print_member_updated</td>
+<td>The team’s granular control of the remote print for members has been updated.</td>
+</tr>
+<tr>
+<td>team_granular_request_permission_admin_updated</td>
+<td>The team’s granular control of the request permission to connect for admins has been updated.</td>
+</tr>
+<tr>
+<td>team_granular_request_permission_member_updated</td>
+<td>The team’s granular control of the request permission to connect for members has been updated.</td>
+</tr>
+<tr>
+<td>team_granular_text_copy_paste_local_remote_admin_updated</td>
+<td>The team’s granular control of the copy and paste (from local to remote) for admins has been updated.</td>
+</tr>
+<tr>
+<td>team_granular_text_copy_paste_local_remote_member_updated</td>
+<td>The team’s granular control of the copy and paste (from local to remote) for members has been updated.</td>
+</tr>
+<tr>
+<td>team_granular_text_copy_paste_remote_local_admin_updated</td>
+<td>The team’s granular control of the copy and paste (from remote to local) for admins has been updated.</td>
+</tr>
+<tr>
+<td>team_granular_text_copy_paste_remote_local_member_updated</td>
+<td>The team’s granular control of the copy and paste (from remote to local) for members has been updated.</td>
+</tr>
+<tr>
+<td>team_granular_watermark_protection_admin_updated</td>
+<td>The team’s granular control of the watermark protection for admins has been updated.</td>
+</tr>
+<tr>
+<td>team_granular_watermark_protection_member_updated</td>
+<td>The team’s granular control of the watermark protection for members has been updated.</td>
+</tr>
+<tr>
+<td>team_granular_request_permission_admin_updated</td>
+<td>The team’s granular control of the request permission to connect for admins has been updated.</td>
+</tr>
+<tr>
+<td>team_granular_request_permission_member_updated</td>
+<td>The team’s granular control of the request permission to connect for members has been updated.</td>
+</tr>
+<tr>
+<td>team_granular_centralized_session_recording_unattended_admin_updated</td>
+<td>The team’s granular control of the centralized session recording (unattended) for admins has been updated.</td>
+</tr>
+<tr>
+<td>team_granular_centralized_session_recording_unattended_member_updated</td>
+<td>The team’s granular control of the centralized session recording (unattended) for members has been updated.</td>
+</tr>
+<tr>
+<td>team_grant_granular_rcentralized_session_recording_unattended_updated</td>
+<td>The admin-configurable value of the centralized session recording (unattended) has been updated for the team.</td>
+</tr>
+<tr>
+<td>team_granular_system_tools_admin_updated</td>
+<td>The team’s granular control of the system tools (unattended) for admins has been updated.</td>
+</tr>
+<tr>
+<td>team_granular_system_tools_member_updated</td>
+<td>The team’s granular control of the system tools (unattended) for members has been updated.</td>
+</tr>
+<tr>
+<td>team_grant_granular_system_tools_updated</td>
+<td>The admin-configurable value of the system tools (unattended) has been updated for the team.</td>
+</tr>
+<tr>
+<td>team_granular_request_permission_rdp_admin_updated</td>
+<td>The team’s granular control of the request permission to connect (RDP session) for admins has been updated.</td>
+</tr>
+<tr>
+<td>team_granular_request_permission_rdp_member_updated</td>
+<td>The team’s granular control of the request permission to connect (RDP session) for members has been updated.</td>
+</tr>
+<tr>
+<td>team_grant_granular_request_permission_rdp_updated</td>
+<td>The admin-configurable value of the  request permission to connect (RDP session) has been updated for the team.</td>
+</tr>
+<tr>
+<td>team_remove_offline_computers_days_updated</td>
+<td>The offline computer policy settings have been updated.</td>
+</tr>
+<tr>
+<td>team_session_indicator_remote_session_type_updated</td>
+<td>The display type of the remote session indicator has been updated.</td>
+</tr>
+<tr>
+<td>team_session_indicator_background_action_type_updated</td>
+<td>The display type of the background action session indicator has been updated.</td>
+</tr>
+<tr>
+<td>team_centralized_session_recording_disabled</td>
+<td>The centralized session recording function has been disabled for unattended access at the team level.</td>
+</tr>
+<tr>
+<td>team_centralized_session_recording_enabled</td>
+<td>The centralized session recording function has been enabled for unattended access at the team level.</td>
+</tr>
+<tr>
+<td>team_concurrent_session_disabled</td>
+<td>The concurrent session has been disabled for unattended access.</td>
+</tr>
+<tr>
+<td>team_concurrent_session_enabled</td>
+<td>The concurrent session has been enabled for unattended access.</td>
+</tr>
+<tr>
+<td>team_device_redirect_disabled</td>
+<td>The device redirection function has been disabled for unattended access at the team level.</td>
+</tr>
+<tr>
+<td>team_device_redirect_enabled</td>
+<td>The device redirection function has been enabled for unattended access at the team level.</td>
+</tr>
+<tr>
+<td>team_file_transfer_disabled</td>
+<td>The file transfer function has been disabled for unattended access.</td>
+</tr>
+<tr>
+<td>team_file_transfer_enabled</td>
+<td>The file transfer function has been enabled for unattended access.</td>
+</tr>
+<tr>
+<td>team_keystroke_paste_disabled</td>
+<td>The paste clipboard as keystrokes function has been disabled for unattended access.</td>
+</tr>
+<tr>
+<td>team_keystroke_paste_enabled</td>
+<td>The paste clipboard as keystrokes function has been enabled for unattended access.</td>
+</tr>
+<tr>
+<td>team_mac_address_restriction_disabled</td>
+<td>The MAC address restriction has been disabled at the team level.</td>
+</tr>
+<tr>
+<td>team_mac_address_restriction_enabled</td>
+<td>The MAC address restriction has been enabled at the team level.</td>
+</tr>
+<tr>
+<td>team_mac_address_restriction_updated</td>
+<td>The settings of the MAC address restriction have been updated.</td>
+</tr>
+<tr>
+<td>team_rdp_computer_disabled</td>
+<td>The RDP computer has been disabled at the team level.</td>
+</tr>
+<tr>
+<td>team_rdp_computer_enabled</td>
+<td>The RDP computer has been enabled at the team level.</td>
+</tr>
+<tr>
+<td>team_remote_command_disabled</td>
+<td>The remote command function has been disabled at the team level.</td>
+</tr>
+<tr>
+<td>team_remote_command_enabled</td>
+<td>The remote command function has been enabled at the team level.</td>
+</tr>
+<tr>
+<td>team_remote_mic_disabled</td>
+<td>The remote microphone function has been disabled at the team level.</td>
+</tr>
+<tr>
+<td>team_remote_mic_enabled</td>
+<td>The remote microphone function has been enabled at the team level.</td>
+</tr>
+<tr>
+<td>team_remote_print_disabled</td>
+<td>The remote print function has been disabled at the team level.</td>
+</tr>
+<tr>
+<td>team_remote_print_enabled</td>
+<td>The remote print function has been enabled at the team level.</td>
+</tr>
+<tr>
+<td>team_remote_reboot_disabled</td>
+<td>The remote reboot computer function has been disabled at the team level.</td>
+</tr>
+<tr>
+<td>team_remote_reboot_enabled</td>
+<td>The remote reboot computer function has been enabled at the team level.</td>
+</tr>
+<tr>
+<td>team_remote_voice_call_disabled</td>
+<td>Remote session voice call has been disabled.</td>
+</tr>
+<tr>
+<td>team_remote_voice_call_enabled</td>
+<td>Remote session voice call has been enabled.</td>
+</tr>
+<tr>
+<td>team_remote_wakeup_disabled</td>
+<td>The remote wakeup function for computers has been disabled at the team level.</td>
+</tr>
+<tr>
+<td>team_remote_wakeup_enabled</td>
+<td>The remote wakeup function for computers has been enabled at the team level.</td>
+</tr>
+<tr>
+<td>team_remote_web_app_disabled</td>
+<td>The Web app for unattended access has been disabled.</td>
+</tr>
+<tr>
+<td>team_remote_web_app_enabled</td>
+<td>The Web app for unattended access has been enabled.</td>
+</tr>
+<tr>
+<td>team_remove_offline_computers_disabled</td>
+<td>The offline computer policy has been disabled at the team level.</td>
+</tr>
+<tr>
+<td>team_remove_offline_computers_enabled</td>
+<td>The offline computer policy has been enabled at the team level.</td>
+</tr>
+<tr>
+<td>team_session_chat_disabled</td>
+<td>The pre-session chat function has been disabled at the team level.</td>
+</tr>
+<tr>
+<td>team_session_chat_enabled</td>
+<td>The pre-session chat function has been enabled at the team level.</td>
+</tr>
+<tr>
+<td>team_session_recording_disabled</td>
+<td>The local session recording has been disabled at the team level.</td>
+</tr>
+<tr>
+<td>team_session_recording_enabled</td>
+<td>The local session recording has been enabled at the team level.</td>
+</tr>
+<tr>
+<td>team_ssh_session_disabled</td>
+<td>The SSH computer has been disabled at the team level.</td>
+</tr>
+<tr>
+<td>team_ssh_session_enabled</td>
+<td>The SSH computer has been enabled at the team level.</td>
+</tr>
+<tr>
+<td>team_text_copypaste_disabled</td>
+<td>The copy and paste function has been disabled at the team level.</td>
+</tr>
+<tr>
+<td>team_text_copypaste_enabled</td>
+<td>The copy and paste function has been enabled at the team level.</td>
+</tr>
+<tr>
+<td>team_vnc_session_disabled</td>
+<td>The VNC computer has been disabled at the team level.</td>
+</tr>
+<tr>
+<td>team_vnc_session_enabled</td>
+<td>The VNC computer has been enabled at the team level.</td>
+</tr>
+<tr>
+<td>team_wacom_bridge_disabled</td>
+<td>The Wacom Bridge function has been disabled at the team level.</td>
+</tr>
+<tr>
+<td>team_wacom_bridge_enabled</td>
+<td>The Wacom Bridge function has been enabled at the team level.</td>
+</tr>
+<tr>
+<td>team_watermark_disabled</td>
+<td>The watermark function has been disabled for unattended access.</td>
+</tr>
+<tr>
+<td>team_watermark_enabled</td>
+<td>The watermark function has been enabled for unattended access.</td>
+</tr>
+<tr>
+<td>team_system_tool_enabled</td>
+<td>The system tools has been enabled for unattended access.</td>
+</tr>
+<tr>
+<td>team_system_tool_disabled</td>
+<td>The system tools has been disabled for unattended access.</td>
+</tr>
+<tr>
+<td>team_close_banner_remote_session_enabled</td>
+<td>The function of allowing users to close the indicator banner has been enabled for remote sessions.</td>
+</tr>
+<tr>
+<td>team_close_banner_remote_session_disabled</td>
+<td>The function of allowing users to close the indicator banner has been disabled for remote sessions.</td>
+</tr>
+<tr>
+<td>team_close_banner_background_action_enabled</td>
+<td>The function of allowing users to close the indicator banner has been enabled for background action sessions.</td>
+</tr>
+<tr>
+<td>team_close_banner_background_action_disabled</td>
+<td>The function of allowing users to close the indicator banner has been disabled for background action sessions.</td>
+</tr>
+<tr>
+<td>team_save_off_session_chat_transcript_enabled</td>
+<td>The save off-session chat transcript has been enabled at team level.</td>
+</tr>
+<tr>
+<td>team_save_in_session_chat_transcript_enabled</td>
+<td>The save in-session chat transcript has been enabled for unattended access.</td>
+</tr>
+<tr>
+<td>team_save_off_session_chat_transcript_disabled</td>
+<td>The save off-session chat transcript has been disabled at team level.</td>
+</tr>
+<tr>
+<td>team_save_in_session_chat_transcript_disabled</td>
+<td>The save in-session chat transcript has been disabled for unattended access.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fields_2">Fields<a class="headerlink" href="#fields_2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Field</strong></th>
+<th><strong>Value</strong></th>
+<th><strong>Explanation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>grant_granular_file_transfer_download</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The admin has been granted or not granted the permission to configure file transfer (download).</td>
+</tr>
+<tr>
+<td>grant_granular_file_transfer_upload</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The admin has been granted or not granted the permission to configure file transfer (upload).</td>
+</tr>
+<tr>
+<td>grant_granular_remote_command</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The admin has been granted or not granted the permission to configure remote command.</td>
+</tr>
+<tr>
+<td>grant_granular_remote_print</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The admin has been granted or not granted the permission to configure remote print.</td>
+</tr>
+<tr>
+<td>grant_granular_request_permission</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The admin has been granted or not granted the permission to configure request-to-connect permission .</td>
+</tr>
+<tr>
+<td>grant_granular_text_copy_paste_local_remote</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The admin has been granted or not granted the permission to configure copy and paste (from local to remote).</td>
+</tr>
+<tr>
+<td>grant_granular_text_copy_paste_remote_local</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The admin has been granted or not granted the permission to configure copy and paste (from remote to local).</td>
+</tr>
+<tr>
+<td>grant_granular_watermark_protection</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The admin has been granted or not granted the permission to configure watermark protection.</td>
+</tr>
+<tr>
+<td>granular_file_transfer_download_admin</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The team’s granular control of the file transfer (download) for admins has been turned on or off.</td>
+</tr>
+<tr>
+<td>granular_file_transfer_download_member</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The team’s granular control of the file transfer (download) for members has been turned on or off.</td>
+</tr>
+<tr>
+<td>granular_file_transfer_upload_admin</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The team’s granular control of the file transfer (upload) for admins has been turned on or off.</td>
+</tr>
+<tr>
+<td>granular_file_transfer_upload_member</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The team’s granular control of the file transfer (upload) for members has been turned on or off.</td>
+</tr>
+<tr>
+<td>granular_remote_command_admin</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The team’s granular control of the remote command for admins has been turned on or off.</td>
+</tr>
+<tr>
+<td>granular_remote_command_member</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The team’s granular control of the remote command for members has been turned on or off.</td>
+</tr>
+<tr>
+<td>granular_remote_print_admin</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The team’s granular control of the remote print for admins has been turned on or off.</td>
+</tr>
+<tr>
+<td>granular_remote_print_member</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The team’s granular control of the remote print for members has been turned on or off.</td>
+</tr>
+<tr>
+<td>granular_request_permission_admin</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The team’s granular control of the request permission to connect for admins has been turned on or off.</td>
+</tr>
+<tr>
+<td>granular_request_permission_member</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The team’s granular control of the request permission to connect for members has been turned on or off.</td>
+</tr>
+<tr>
+<td>granular_text_copy_paste_local_remote_admin</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The team’s granular control of the copy and paste (from local to remote) for admins has been turned on or off.</td>
+</tr>
+<tr>
+<td>granular_text_copy_paste_local_remote_member</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The team’s granular control of the copy and paste (from local to remote) for members has been turned on or off.</td>
+</tr>
+<tr>
+<td>granular_text_copy_paste_remote_local_admin</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The team’s granular control of the copy and paste (from remote to local) for admins has been turned on or off.</td>
+</tr>
+<tr>
+<td>granular_text_copy_paste_remote_local_member</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The team’s granular control of the copy and paste (from remote to local) for members has been turned on or off.</td>
+</tr>
+<tr>
+<td>granular_watermark_protection_admin</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The team’s granular control of the watermark protection for admins has been turned on or off.</td>
+</tr>
+<tr>
+<td>granular_watermark_protection_member</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The team’s granular control of the watermark protection for members has been turned on or off.</td>
+</tr>
+<tr>
+<td>granular_request_permission_admin</td>
+<td>String</td>
+<td>The team’s granular control of the request permission to connect for admins has been turned on or off.</td>
+</tr>
+<tr>
+<td>granular_request_permission_member</td>
+<td>String</td>
+<td>The team’s granular control of the request permission to connect for members has been turned on or off.</td>
+</tr>
+<tr>
+<td>granular_centralized_session_recording_unattended_admin</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The team’s granular control of the centralized session recording (unattended) for admins has been turned on or off.</td>
+</tr>
+<tr>
+<td>granular_centralized_session_recording_unattended_member</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The team’s granular control of the centralized session recording (unattended) for members has been turned on or off.</td>
+</tr>
+<tr>
+<td>grant_granular_rcentralized_session_recording_unattended</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The admin has been granted or not granted the permission to configure centralized session recording (unattended).</td>
+</tr>
+<tr>
+<td>granular_system_tools_admin</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The team’s granular control of the system tools (unattended) for admins has been turned on or off.</td>
+</tr>
+<tr>
+<td>granular_system_tools_member</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The team’s granular control of the system tools (unattended) for members has been turned on or off.</td>
+</tr>
+<tr>
+<td>grant_granular_system_tools</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The admin has been granted or not granted the permission to configure system tools (unattended).</td>
+</tr>
+<tr>
+<td>granular_request_permission_rdp_admin</td>
+<td>String</td>
+<td>The team’s granular control of the request permission to connect (RDP session) for admins has been turned on or off.</td>
+</tr>
+<tr>
+<td>granular_request_permission_rdp_member</td>
+<td>String</td>
+<td>The team’s granular control of the request permission to connect (RDP session) for members has been turned on or off.</td>
+</tr>
+<tr>
+<td>grant_granular_request_permission_rdp</td>
+<td><strong>on</strong> or <strong>off</strong></td>
+<td>The admin has been granted or not granted the permission to configure request permission to connect (RDP session).</td>
+</tr>
+<tr>
+<td>remove_offline_computers_days</td>
+<td>String</td>
+<td>The computer offline day threshold for offline computer policy.</td>
+</tr>
+<tr>
+<td>exec_at</td>
+<td>String</td>
+<td>The daily time of running the offline computer policy.</td>
+</tr>
+<tr>
+<td>session_indicator_type</td>
+<td><strong>Both</strong> or <strong>Pop-up</strong> or <strong>Banner</strong> or <strong>None</strong></td>
+<td>The indicator type for remote session or background actions.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="user-settings"><strong>User Settings</strong><a class="headerlink" href="#user-settings" title="Permanent link">&para;</a></h2>
+<h3 id="events-and-triggers_3">Events and triggers<a class="headerlink" href="#events-and-triggers_3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Event</strong></th>
+<th><strong>Trigger</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>team_group_manager_disabled</td>
+<td>Group manager role has been disabled at the team level.</td>
+</tr>
+<tr>
+<td>team_group_manager_enabled</td>
+<td>Group manager role has been enabled at the team level.</td>
+</tr>
+<tr>
+<td>team_member_connect_active_session_disabled</td>
+<td>The function of allowing member roles to connect to the active session has been disabled.</td>
+</tr>
+<tr>
+<td>team_member_connect_active_session_enabled</td>
+<td>The function of allowing member roles to connect to the active session has been enabled.</td>
+</tr>
+<tr>
+<td>team_member_create_multi_session_disabled</td>
+<td>The function of allowing member roles to establish multiple sessions concurrently has been disabled.</td>
+</tr>
+<tr>
+<td>team_member_create_multi_session_enabled</td>
+<td>The function of allowing member roles to establish multiple sessions concurrently has been enabled.</td>
+</tr>
+<tr>
+<td>team_member_disconnect_session_disabled</td>
+<td>The function of allowing member roles to disconnect the active session has been disabled.</td>
+</tr>
+<tr>
+<td>team_member_disconnect_session_enabled</td>
+<td>The function of allowing member roles to disconnect the active session has been enabled.</td>
+</tr>
+<tr>
+<td>team_member_reboot_disabled</td>
+<td>The function of allowing member roles to reboot computers and Streamers has been disabled.</td>
+</tr>
+<tr>
+<td>team_member_reboot_enabled</td>
+<td>The function of allowing member roles to reboot computers and Streamers has been enabled.</td>
+</tr>
+<tr>
+<td>team_member_see_group_disabled</td>
+<td>The function of allowing member roles to see all groups has been disabled.</td>
+</tr>
+<tr>
+<td>team_member_see_group_enabled</td>
+<td>The function of allowing member roles to see all groups has been enabled.</td>
+</tr>
+<tr>
+<td>team_remote_reboot_action_updated</td>
+<td>The settings of allowing member roles to reboot computers and Streamers have been updated.</td>
+</tr>
+<tr>
+<td>team_member_permission_for_computer_notes_updated</td>
+<td>The settings of member’s permission for computer notes have been updated.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fields_3">Fields<a class="headerlink" href="#fields_3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Field</strong></th>
+<th><strong>Value</strong></th>
+<th><strong>Explanation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote_reboot_member</td>
+<td>String</td>
+<td>Actions that member role is allowed to perform on the computers.</td>
+</tr>
+<tr>
+<td>permission_for_computer_notes</td>
+<td><strong>cannot view and edit</strong> or <strong>view only</strong> or <strong>view and edit</strong></td>
+<td>Whether member role cannot view and edit the computer notes, can only view the computer notes, or can view and edit the computer notes.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.expand", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>
