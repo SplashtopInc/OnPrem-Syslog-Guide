@@ -1,4 +1,4 @@
-# Syslog - Settings
+# **Settings**
 
 ## **Public Fields**
 
